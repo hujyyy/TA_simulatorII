@@ -7,7 +7,8 @@
     "inheritCreationOrder": false,
     "inheritLayers": false,
     "instanceCreationOrderIDs": [
-
+        "c927a7b6-b752-4fe3-a105-addb7cde5c24",
+        "c90f90fb-37e4-439e-b654-ba291b4ae9b5"
     ],
     "IsDnD": false,
     "layers": [
@@ -25,7 +26,8 @@
             "inheritSubLayers": false,
             "inheritVisibility": false,
             "instances": [
-
+{"name": "inst_2F25EC1F","id": "c927a7b6-b752-4fe3-a105-addb7cde5c24","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_2F25EC1F","objId": "02ebb4a0-420a-457e-9053-3822264ebd9f","properties": null,"rotation": 0,"scaleX": 2.45392,"scaleY": 2.45392,"mvc": "1.0","x": 992,"y": 864},
+{"name": "inst_6E36E4F5","id": "c90f90fb-37e4-439e-b654-ba291b4ae9b5","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_6E36E4F5","objId": "8974e084-3b67-4ba2-8506-358bba2a4d30","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.0","x": 992,"y": 384}
             ],
             "layers": [
 
@@ -43,7 +45,7 @@
             "id": "3942267e-ca6b-4fab-8761-c04f06021a67",
             "animationFPS": 15,
             "animationSpeedType": "0",
-            "colour": { "Value": 4278190080 },
+            "colour": { "Value": 4289901234 },
             "depth": 100,
             "grid_x": 32,
             "grid_y": 32,
@@ -87,12 +89,12 @@
     },
     "roomSettings":     {
         "id": "ee48adc8-2c70-4516-b593-2bf829d3e766",
-        "Height": 768,
+        "Height": 1080,
         "inheritRoomSettings": false,
         "modelName": "GMRoomSettings",
         "persistent": false,
         "mvc": "1.0",
-        "Width": 1024
+        "Width": 1920
     },
     "mvc": "1.0",
     "views": [

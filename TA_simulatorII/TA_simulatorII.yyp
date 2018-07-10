@@ -191,14 +191,6 @@
             }
         },
         {
-            "Key": "8eedd9f7-d8a1-40de-86cc-db864ac9e497",
-            "Value": {
-                "id": "8abab7e3-294c-4b4e-9687-c63a16f0a7de",
-                "resourcePath": "sprites\\startbutton_sprite1\\startbutton_sprite1.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "90809033-ab51-4cd8-8b6b-1a51844a3735",
             "Value": {
                 "id": "24d548f5-0cea-432a-81ae-d06f26a721a0",
@@ -244,14 +236,6 @@
                 "id": "93430010-6207-4b0f-a41c-19f2179ab028",
                 "resourcePath": "options\\linux\\options_linux.yy",
                 "resourceType": "GMLinuxOptions"
-            }
-        },
-        {
-            "Key": "abcbcf95-a650-4d84-b5d1-6ec24590a547",
-            "Value": {
-                "id": "3d38e752-c84b-4a6b-bd85-b49cc3e25d94",
-                "resourcePath": "sprites\\startbutton_sprite2\\startbutton_sprite2.yy",
-                "resourceType": "GMSprite"
             }
         },
         {

@@ -31,14 +31,6 @@
     },
     "resources": [
         {
-            "Key": "02ebb4a0-420a-457e-9053-3822264ebd9f",
-            "Value": {
-                "id": "f7c8e88a-8bd3-4286-89bc-b903a5b2cbbf",
-                "resourcePath": "objects\\startButton_obj\\startButton_obj.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "07990c4e-1239-46bb-b11c-3d40edd8a322",
             "Value": {
                 "id": "a4897d68-dbe7-42c8-85c1-cebb58b64033",
@@ -103,6 +95,22 @@
             }
         },
         {
+            "Key": "3e411d8f-268f-4e05-82c5-6a0ceba3ac90",
+            "Value": {
+                "id": "72f3b35c-c88c-4f1e-8670-79a88a15959b",
+                "resourcePath": "sprites\\button_down_sprite\\button_down_sprite.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "427272dd-c875-4472-8e18-41e52983920d",
+            "Value": {
+                "id": "84fb4f1d-8ea6-4fb1-9e94-5e69203bbf4b",
+                "resourcePath": "objects\\start_button_obj\\start_button_obj.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "46eecaca-7ec4-4de8-a9ff-ca62f4b5fe10",
             "Value": {
                 "id": "c4a03047-73ec-4d6d-bf14-d4461fd49aec",
@@ -116,6 +124,14 @@
                 "id": "17e60fbc-540d-4ad3-9333-bd3aaa9730fa",
                 "resourcePath": "views\\4c3cce85-c6e6-4ff9-adec-a018f1bbe138.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "52fc4885-e0b8-45b5-987b-447c7d8cdd69",
+            "Value": {
+                "id": "2d7df9d4-6926-4c47-ab94-ecbd01c9dbc4",
+                "resourcePath": "objects\\quit_button_obj\\quit_button_obj.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -199,6 +215,14 @@
             }
         },
         {
+            "Key": "a31bcab5-fb5a-465d-b293-c9449ed40bc8",
+            "Value": {
+                "id": "f496af96-ebc3-45a7-819f-5dd12131388b",
+                "resourcePath": "fonts\\button_font\\button_font.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "a53923b6-3472-46e0-a8f4-55786839dc0c",
             "Value": {
                 "id": "3a53f6d0-5457-4c33-831d-e4f0ac259eb4",
@@ -231,6 +255,14 @@
             }
         },
         {
+            "Key": "ba6b21e9-3684-4b6a-91ab-9d93c50fd9c5",
+            "Value": {
+                "id": "0f25858e-976a-4cb6-8369-52992e4158b8",
+                "resourcePath": "views\\ba6b21e9-3684-4b6a-91ab-9d93c50fd9c5.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "bc208cf2-d3fc-4e88-adc6-55774569466c",
             "Value": {
                 "id": "1d238080-3d6a-4636-8fe3-a1ada03152fa",
@@ -255,6 +287,14 @@
             }
         },
         {
+            "Key": "d505ed7a-5484-42fa-b841-a7ce046fafef",
+            "Value": {
+                "id": "b46c500c-fc5d-473a-acd3-3ac591cff07a",
+                "resourcePath": "objects\\fullscreen_button_obj\\fullscreen_button_obj.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d970521f-db27-420a-9815-4bf0206e384c",
             "Value": {
                 "id": "0ec570c0-1b88-4509-b60c-7c6ae9f76786",
@@ -268,6 +308,14 @@
                 "id": "eff4b907-f14d-42b8-b6ff-9423cfb8953b",
                 "resourcePath": "views\\e0fbd619-b6bb-494d-acfc-4c71e5dcd75a.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e85086a2-14a1-4ca8-97da-4f1341c12ec1",
+            "Value": {
+                "id": "3459ce54-7f8e-46b8-a138-86081e68c197",
+                "resourcePath": "sprites\\button_sprite\\button_sprite.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

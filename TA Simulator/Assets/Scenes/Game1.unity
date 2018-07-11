@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 1100602754}
   m_Layer: 0
   m_Name: pc 1 head
-  m_TagString: Untagged
+  m_TagString: mid paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -667,8 +667,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -24.59021
-    m_UpperAngle: 202.4628
+    m_LowerAngle: -45
+    m_UpperAngle: 45
 --- !u!58 &1100602754
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 1203356796}
   m_Layer: 0
   m_Name: pc 1 head
-  m_TagString: Untagged
+  m_TagString: mid paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -752,8 +752,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -24.59021
-    m_UpperAngle: 202.4628
+    m_LowerAngle: -45
+    m_UpperAngle: 45
 --- !u!50 &1203356798
 Rigidbody2D:
   serializedVersion: 4
@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 1308791695}
   m_Layer: 0
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: mid paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1027,7 +1027,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 8
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -1163,7 +1163,7 @@ GameObject:
   - component: {fileID: 1528994801}
   m_Layer: 0
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: mid paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1180,7 +1180,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 8
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

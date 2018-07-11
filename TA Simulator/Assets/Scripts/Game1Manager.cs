@@ -48,9 +48,6 @@ public class Game1Manager : MonoBehaviour
             npc.transform.position = Vector2.MoveTowards(npc.transform.position, npcOutPosition, npcMoveSpeed * Time.deltaTime);
         }
         yield return new WaitForSeconds(delay);
-        player1.UpdateHeadSprite();
-        player2.UpdateHeadSprite();
-        yield return new WaitForSeconds(delay);
         gameRunning = true;
         ball.StartKick();
     }

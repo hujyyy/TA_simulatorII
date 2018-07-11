@@ -8,11 +8,9 @@ public class Game1Player : MonoBehaviour
     public bool player2;
 
     public float moveSpeed;
-    public float jumpSpeed = 25;
-    public float gravity = 50;
-    private float velocity;
-
-    public Sprite bigHeadSprite;
+    //public float jumpSpeed = 25;
+    //public float gravity = 50;
+    //private float velocity;
 
 	private void Update ()
 	{
@@ -21,12 +19,12 @@ public class Game1Player : MonoBehaviour
 
         if (player2 ? Input.GetKey(KeyCode.UpArrow) : Input.GetKey(KeyCode.W))
         {
-            if(transform.position.y < 6)
+            if(transform.position.y < 8)
                 transform.position += Vector3.up * moveSpeed * Time.deltaTime;
         }
         if (player2 ? Input.GetKey(KeyCode.DownArrow) : Input.GetKey(KeyCode.S))
         {
-            if (transform.position.y > -1.4)
+            if (transform.position.y > 0)
                 transform.position += Vector3.down * moveSpeed * Time.deltaTime;
         }
 
@@ -91,14 +89,11 @@ public class Game1Player : MonoBehaviour
         */
     }
 
-    private void Jump()
-    {
-        velocity = jumpSpeed;
-        transform.position += Vector3.up * 0.1f;
-    }
-
-    public void UpdateHeadSprite()
-    {
-        GetComponent<SpriteRenderer>().sprite = bigHeadSprite;
-    }
+    /*
+private void Jump()
+{
+    velocity = jumpSpeed;
+    transform.position += Vector3.up * 0.1f;
+}
+    */
 }

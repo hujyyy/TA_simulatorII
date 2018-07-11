@@ -19,13 +19,19 @@ public class Game1Player : MonoBehaviour
 
         if (player2 ? Input.GetKey(KeyCode.UpArrow) : Input.GetKey(KeyCode.W))
         {
-            if(transform.position.y < 8)
-                transform.position += Vector3.up * moveSpeed * Time.deltaTime;
+            if (transform.position.y < 8)
+            {
+                //transform.position += Vector3.up * moveSpeed * Time.deltaTime;
+                GetComponent<Rigidbody2D>().AddForce(Vector3.up * moveSpeed);
+            }
         }
         if (player2 ? Input.GetKey(KeyCode.DownArrow) : Input.GetKey(KeyCode.S))
         {
             if (transform.position.y > 0)
-                transform.position += Vector3.down * moveSpeed * Time.deltaTime;
+            {
+                //transform.position += Vector3.down * moveSpeed * Time.deltaTime;
+                GetComponent<Rigidbody2D>().AddForce(Vector3.down * moveSpeed);
+            }
         }
 
         if (player2 ? Input.GetKey(KeyCode.LeftArrow) : Input.GetKey(KeyCode.A))
@@ -45,7 +51,8 @@ public class Game1Player : MonoBehaviour
                 }
             }
 
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            //transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            GetComponent<Rigidbody2D>().AddForce(Vector3.left * moveSpeed);
         }
         if (player2 ? Input.GetKey(KeyCode.RightArrow) : Input.GetKey(KeyCode.D))
         {
@@ -64,7 +71,8 @@ public class Game1Player : MonoBehaviour
                 }
             }
 
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            //transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            GetComponent<Rigidbody2D>().AddForce(Vector3.right * moveSpeed);
         }
 
         /*

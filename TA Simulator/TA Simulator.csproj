@@ -307,6 +307,7 @@
     <Compile Include="Assets\Scripts\Game1Player.cs" />
     <Compile Include="Assets\Scripts\Game1Table.cs" />
     <Compile Include="Assets\Scripts\TitleUI.cs" />
+    <Compile Include="Assets\Timer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\Users\Levi\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Styles\Main_Dark.uss" />

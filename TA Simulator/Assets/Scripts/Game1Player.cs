@@ -5,6 +5,7 @@ using UnityEngine;
 public class Game1Player : MonoBehaviour
 {
     public Game1Manager gameManager;
+    public GameObject head;
     public bool player2;
 
     public float moveSpeed;
@@ -31,5 +32,10 @@ public class Game1Player : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().AddForce(Vector3.right * moveSpeed);
         }
+    }
+
+    public void Bighead() {
+        gameManager.Play_head();
+        head.transform.localScale += Vector3.one * 0.2f;
     }
 }

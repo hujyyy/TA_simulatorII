@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Game1Manager : MonoBehaviour
 {
+    private AudioSource audioSource;
+
     public Game1Ball ball;
     public GameObject player1;
     public GameObject player2;
@@ -25,7 +27,14 @@ public class Game1Manager : MonoBehaviour
     public GameObject[] tables;
 
     public bool gameover;
+    public SpriteRenderer bg;
+    public ScoreBoard scoreboard;
+    public GameObject left_bubble;
+    public GameObject right_bubble;
 
+    public AudioClip ball_audio;
+    public AudioClip head_audio;
+    public AudioClip goal_audio;
     public void ResetGame()
     {
         StopCoroutine("ResetBall");
@@ -38,6 +47,20 @@ public class Game1Manager : MonoBehaviour
 
     public bool gameRunning;
 
+    public void Play_ball() {
+        audioSource.PlayOneShot(ball_audio);
+    }
+    public void Play_head() {
+        audioSource.PlayOneShot(head_audio);
+    }
+    public void Play_goal() {
+        audioSource.PlayOneShot(goal_audio);
+    }
+
+
+
+
+
     public void Start()
     {
         gameover = false;
@@ -46,8 +69,51 @@ public class Game1Manager : MonoBehaviour
         player1.GetComponent<PolygonCollider2D>().enabled = false;
         player2.GetComponent<PolygonCollider2D>().enabled = false;
         speechBubble.GetComponent<CircleCollider2D>().sharedMaterial.bounciness = 1.0f;
-    }
+        bg.color = new Color(1, 1, 1, 0);
 
+        left_bubble.SetActive(false);
+        right_bubble.SetActive(false);
+
+        audioSource = GetComponent<AudioSource>();
+
+    }
+    public void Update (){
+        if (!gameover) return;
+        left_bubble.SetActive(false);
+        right_bubble.SetActive(false);
+        if (scoreboard.Player1_score > scoreboard.Player2_score)
+        {
+            if (player1.transform.position.x < 0)
+            {
+                right_bubble.transform.position = player1.GetComponent<Game1Player>().head.transform.position;
+                right_bubble.SetActive(true);
+            }
+            else
+            {
+                left_bubble.transform.position = player1.GetComponent<Game1Player>().head.transform.position;
+                left_bubble.SetActive(true);
+            }
+        }
+        else
+        {
+            if (player2.transform.position.x < 0)
+            {
+                right_bubble.transform.position = player2.GetComponent<Game1Player>().head.transform.position;
+                right_bubble.SetActive(true);
+            }
+            else
+            {
+                left_bubble.transform.position = player2.GetComponent<Game1Player>().head.transform.position;
+                left_bubble.SetActive(true);
+            }
+        }
+
+
+
+
+
+
+    }
     public void End() {
         gameover = true;
         StartCoroutine("End_IE");
@@ -59,8 +125,9 @@ public class Game1Manager : MonoBehaviour
         //player1.GetComponent<PolygonCollider2D>().sharedMaterial.bounciness = 0.3f;
 
         speechBubble.GetComponent<Rigidbody2D>().gravityScale = 3;
-
         speechBubble.GetComponent<CircleCollider2D>().sharedMaterial= null;
+
+
     }
 
 
@@ -80,6 +147,11 @@ public class Game1Manager : MonoBehaviour
                 chair.transform.position = Vector2.MoveTowards(chair.transform.position, new Vector2(chair.transform.position.x, chairStartYPosition), Time.deltaTime * npcMoveSpeed);
             }
         }
+        while (bg.color.a > 0)
+        {
+            yield return new WaitForEndOfFrame();
+            bg.color -= new Color(0, 0, 0, 1 * Time.deltaTime);
+        }
 
 
     }
@@ -88,6 +160,11 @@ public class Game1Manager : MonoBehaviour
     {
         yield return ResetBall(false);
         yield return new WaitForSeconds(delay);
+        while (bg.color.a < 1)
+        {
+            yield return new WaitForEndOfFrame();
+            bg.color += new Color(0, 0, 0, 1 * Time.deltaTime);
+        }
         foreach (var table in tables)
         {
             table.GetComponent<Game1Table>().move = true;
@@ -113,6 +190,7 @@ public class Game1Manager : MonoBehaviour
         speechBubble.transform.position = speechBubbleBallNormalPosition;
         speechBubble.transform.localScale = speechBubbleBallNormalSize;
         speechBubble.GetComponent<SpriteRenderer>().sprite = speechBubbleNormalSprite;
+        speechBubble.transform.eulerAngles = Vector3.zero;
 
         npc.GetComponent<Game1NPC>().NewSprite();
 

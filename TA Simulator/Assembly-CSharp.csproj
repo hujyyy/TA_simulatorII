@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\ScoreBoard.cs" />
      <Compile Include="Assets\Scripts\Game1Ball.cs" />
+     <Compile Include="Assets\Scripts\Game1bubble.cs" />
      <Compile Include="Assets\Scripts\Game1Manager.cs" />
      <Compile Include="Assets\Scripts\Game1NPC.cs" />
      <Compile Include="Assets\Scripts\Game1Player.cs" />

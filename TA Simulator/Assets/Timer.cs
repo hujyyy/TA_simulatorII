@@ -20,6 +20,10 @@ public class Timer : MonoBehaviour {
 	void Update () {
         if (!manager.gameRunning||manager.gameover) return;
         if (totaltime <= 0) {
+            if (manager.scoreboard.Player1_score == manager.scoreboard.Player2_score) {
+                totaltime = 15;
+                return;
+            }
             txt.text = "";
             manager.gameRunning = false;
             manager.End();

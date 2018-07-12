@@ -22,9 +22,22 @@ public class Game1Ball : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col) {
         if (manager.gameover) gameObject.SetActive(false);
-        if (col.gameObject.tag == "gate1") { scoreboard.Player1_score += 1; }
-        if (col.gameObject.tag == "gate2") { scoreboard.Player2_score += 1; }
+        manager.Play_goal();
+        if (col.gameObject.tag == "gate2") {
+            scoreboard.Player1_score += 1;
+            manager.player2.GetComponent<Game1Player>().Bighead();
+        }
+        if (col.gameObject.tag == "gate1") {
+            scoreboard.Player2_score += 1;
+            manager.player1.GetComponent<Game1Player>().Bighead();
+        }
 
         manager.ResetGame();
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log(12);
+        if (GetComponent<Rigidbody2D>().velocity.x > 2 || GetComponent<Rigidbody2D>().velocity.y > 2) manager.Play_ball();
     }
 }

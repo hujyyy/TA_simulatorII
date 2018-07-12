@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Game1Manager.cs" />
      <Compile Include="Assets\Scripts\Game1NPC.cs" />
      <Compile Include="Assets\Scripts\Game1Player.cs" />
+     <Compile Include="Assets\Scripts\Game1Table.cs" />
      <Compile Include="Assets\Scripts\TitleUI.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>D:/shanghaitech/inno lab/game design2018/TA_simulatorII_unity/TA_simulatorII/TA Simulator/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

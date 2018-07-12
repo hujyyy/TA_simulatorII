@@ -5,8 +5,8 @@ using UnityEngine;
 public class Game1Manager : MonoBehaviour
 {
     public Game1Ball ball;
-    public Game1Player player1;
-    public Game1Player player2;
+    public GameObject player1;
+    public GameObject player2;
     public GameObject npc;
     public Vector2 npcInPosition;
     public Vector2 npcOutPosition;
@@ -15,6 +15,10 @@ public class Game1Manager : MonoBehaviour
     public Sprite speechBubbleBallSprite;
     public Vector3 speechBubbleBallSize;
 
+    public float chairOutYPosition;
+    public GameObject[] tables;
+    public GameObject[] chairs;
+
     private float delay = 0.2f;
 
     public bool gameRunning;
@@ -22,6 +26,9 @@ public class Game1Manager : MonoBehaviour
     public void Start()
     {
         StartCoroutine("Start_IE");
+        player1.GetComponent<PolygonCollider2D>().enabled = false;
+        player2.GetComponent<PolygonCollider2D>().enabled = false;
+
     }
 
     private IEnumerator Start_IE()
@@ -48,6 +55,21 @@ public class Game1Manager : MonoBehaviour
             npc.transform.position = Vector2.MoveTowards(npc.transform.position, npcOutPosition, npcMoveSpeed * Time.deltaTime);
         }
         yield return new WaitForSeconds(delay);
+        foreach (var table in tables)
+        {
+            table.GetComponent<Game1Table>().move = true;
+        }
+        while (chairs[0].transform.position.y > chairOutYPosition)
+        {
+            yield return new WaitForEndOfFrame();
+            foreach (var chair in chairs)
+            {
+                chair.transform.position = Vector2.MoveTowards(chair.transform.position, new Vector2(chair.transform.position.x, chairOutYPosition), Time.deltaTime * npcMoveSpeed);
+            }
+        }
+        yield return new WaitForSeconds(delay);
+        player1.GetComponent<PolygonCollider2D>().enabled = true;
+        player2.GetComponent<PolygonCollider2D>().enabled = true;
         gameRunning = true;
     }
 }

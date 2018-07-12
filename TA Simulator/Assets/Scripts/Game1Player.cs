@@ -11,8 +11,8 @@ public class Game1Player : MonoBehaviour
 
 	private void Update ()
 	{
-        //if (!gameManager.gameRunning)
-            //return;
+        if (!gameManager.gameRunning)
+            return;
 
         if (player2 ? Input.GetKey(KeyCode.UpArrow) : Input.GetKey(KeyCode.W))
         {

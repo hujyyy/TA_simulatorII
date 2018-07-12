@@ -11,6 +11,8 @@ TagManager:
   - top paddle
   - mid paddle
   - bot paddle
+  - gate1
+  - gate2
   layers:
   - Default
   - TransparentFX

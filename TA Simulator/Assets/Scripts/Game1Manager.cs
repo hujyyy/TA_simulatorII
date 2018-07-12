@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,8 +16,18 @@ public class Game1Manager : MonoBehaviour
     public Sprite speechBubbleBallSprite;
     public Vector3 speechBubbleBallSize;
 
+    public Sprite speechBubbleNormalSprite;
+    public Vector3 speechBubbleBallNormalSize;
+    public Vector3 speechBubbleBallNormalPosition;
+
     public float chairOutYPosition;
     public GameObject[] tables;
+
+    public void ResetGame()
+    {
+        StartCoroutine("ResetBall");
+    }
+
     public GameObject[] chairs;
 
     private float delay = 0.2f;
@@ -33,6 +44,35 @@ public class Game1Manager : MonoBehaviour
 
     private IEnumerator Start_IE()
     {
+        yield return ResetBall();
+        yield return new WaitForSeconds(delay);
+        foreach (var table in tables)
+        {
+            table.GetComponent<Game1Table>().move = true;
+        }
+        while (chairs[0].transform.position.y > chairOutYPosition)
+        {
+            yield return new WaitForEndOfFrame();
+            foreach (var chair in chairs)
+            {
+                chair.transform.position = Vector2.MoveTowards(chair.transform.position, new Vector2(chair.transform.position.x, chairOutYPosition), Time.deltaTime * npcMoveSpeed);
+            }
+        }
+        yield return new WaitForSeconds(delay);
+        player1.GetComponent<PolygonCollider2D>().enabled = true;
+        player2.GetComponent<PolygonCollider2D>().enabled = true;
+        gameRunning = true;
+    }
+
+    private IEnumerator ResetBall()
+    {
+        speechBubble.SetActive(false);
+        speechBubble.transform.position = speechBubbleBallNormalPosition;
+        speechBubble.transform.localScale = speechBubbleBallNormalSize;
+        speechBubble.GetComponent<SpriteRenderer>().sprite = speechBubbleNormalSprite;
+
+        npc.GetComponent<Game1NPC>().NewSprite();
+
         while (Vector2.Distance(npcInPosition, npc.transform.position) > .05f)
         {
             yield return new WaitForEndOfFrame();
@@ -54,22 +94,5 @@ public class Game1Manager : MonoBehaviour
             yield return new WaitForEndOfFrame();
             npc.transform.position = Vector2.MoveTowards(npc.transform.position, npcOutPosition, npcMoveSpeed * Time.deltaTime);
         }
-        yield return new WaitForSeconds(delay);
-        foreach (var table in tables)
-        {
-            table.GetComponent<Game1Table>().move = true;
-        }
-        while (chairs[0].transform.position.y > chairOutYPosition)
-        {
-            yield return new WaitForEndOfFrame();
-            foreach (var chair in chairs)
-            {
-                chair.transform.position = Vector2.MoveTowards(chair.transform.position, new Vector2(chair.transform.position.x, chairOutYPosition), Time.deltaTime * npcMoveSpeed);
-            }
-        }
-        yield return new WaitForSeconds(delay);
-        player1.GetComponent<PolygonCollider2D>().enabled = true;
-        player2.GetComponent<PolygonCollider2D>().enabled = true;
-        gameRunning = true;
     }
 }

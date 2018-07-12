@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Game1Ball : MonoBehaviour
 {
+    public Game1Manager manager;
     private Rigidbody2D rig2D;
     public ScoreBoard scoreboard;
     private void Awake()
@@ -22,8 +23,6 @@ public class Game1Ball : MonoBehaviour
         if (col.gameObject.tag == "gate1") { scoreboard.Player1_score += 1; }
         if (col.gameObject.tag == "gate2") { scoreboard.Player2_score += 1; }
 
-        Destroy(gameObject);
-
-
+        manager.ResetGame();
     }
 }

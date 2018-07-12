@@ -16,10 +16,12 @@ public class Game1Ball : MonoBehaviour
 
     public void Update()
     {
+
         rig2D.velocity = new Vector2(Mathf.Min(7, rig2D.velocity.x), Mathf.Min(7, rig2D.velocity.y));
     }
 
     void OnTriggerEnter2D(Collider2D col) {
+        if (manager.gameover) gameObject.SetActive(false);
         if (col.gameObject.tag == "gate1") { scoreboard.Player1_score += 1; }
         if (col.gameObject.tag == "gate2") { scoreboard.Player2_score += 1; }
 

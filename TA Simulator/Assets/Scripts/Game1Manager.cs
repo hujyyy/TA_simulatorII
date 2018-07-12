@@ -21,11 +21,15 @@ public class Game1Manager : MonoBehaviour
     public Vector3 speechBubbleBallNormalPosition;
 
     public float chairOutYPosition;
+    private float chairStartYPosition;
     public GameObject[] tables;
+
+    public bool gameover;
 
     public void ResetGame()
     {
-        StartCoroutine("ResetBall");
+        StopCoroutine("ResetBall");
+        StartCoroutine(ResetBall(true));
     }
 
     public GameObject[] chairs;
@@ -36,15 +40,53 @@ public class Game1Manager : MonoBehaviour
 
     public void Start()
     {
+        gameover = false;
+        chairStartYPosition = chairs[0].transform.position.y;
         StartCoroutine("Start_IE");
         player1.GetComponent<PolygonCollider2D>().enabled = false;
         player2.GetComponent<PolygonCollider2D>().enabled = false;
+        speechBubble.GetComponent<CircleCollider2D>().sharedMaterial.bounciness = 1.0f;
+    }
+
+    public void End() {
+        gameover = true;
+        StartCoroutine("End_IE");
+        foreach (var table in tables) foreach (var col in table.GetComponents<BoxCollider2D>()) col.enabled = false;
+
+        player1.GetComponent<Rigidbody2D>().gravityScale = 3;
+        //player1.GetComponent<PolygonCollider2D>().sharedMaterial.bounciness = 0.3f;
+        player2.GetComponent<Rigidbody2D>().gravityScale = 3;
+        //player1.GetComponent<PolygonCollider2D>().sharedMaterial.bounciness = 0.3f;
+
+        speechBubble.GetComponent<Rigidbody2D>().gravityScale = 3;
+
+        speechBubble.GetComponent<CircleCollider2D>().sharedMaterial= null;
+    }
+
+
+    public IEnumerator End_IE()
+    {
+        gameRunning = false;
+        foreach (var table in tables)
+        {
+            table.GetComponent<Game1Table>().move = false;
+            table.GetComponent<Game1Table>().moveback = true;
+        }
+        while (chairs[0].transform.position.y < chairStartYPosition)
+        {
+            yield return new WaitForEndOfFrame();
+            foreach (var chair in chairs)
+            {
+                chair.transform.position = Vector2.MoveTowards(chair.transform.position, new Vector2(chair.transform.position.x, chairStartYPosition), Time.deltaTime * npcMoveSpeed);
+            }
+        }
+
 
     }
 
     private IEnumerator Start_IE()
     {
-        yield return ResetBall();
+        yield return ResetBall(false);
         yield return new WaitForSeconds(delay);
         foreach (var table in tables)
         {
@@ -64,8 +106,9 @@ public class Game1Manager : MonoBehaviour
         gameRunning = true;
     }
 
-    private IEnumerator ResetBall()
+    private IEnumerator ResetBall(bool startGame)
     {
+        gameRunning = false;
         speechBubble.SetActive(false);
         speechBubble.transform.position = speechBubbleBallNormalPosition;
         speechBubble.transform.localScale = speechBubbleBallNormalSize;
@@ -94,5 +137,8 @@ public class Game1Manager : MonoBehaviour
             yield return new WaitForEndOfFrame();
             npc.transform.position = Vector2.MoveTowards(npc.transform.position, npcOutPosition, npcMoveSpeed * Time.deltaTime);
         }
+
+        if (startGame)
+            gameRunning = true;
     }
 }

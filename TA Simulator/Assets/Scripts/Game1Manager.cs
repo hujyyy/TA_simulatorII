@@ -49,6 +49,5 @@ public class Game1Manager : MonoBehaviour
         }
         yield return new WaitForSeconds(delay);
         gameRunning = true;
-        ball.StartKick();
     }
 }

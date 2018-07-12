@@ -304,6 +304,7 @@
     <Compile Include="Assets\Scripts\Game1Manager.cs" />
     <Compile Include="Assets\Scripts\Game1NPC.cs" />
     <Compile Include="Assets\Scripts\Game1Player.cs" />
+    <Compile Include="Assets\Scripts\Game1Table.cs" />
     <Compile Include="Assets\Scripts\TitleUI.cs" />
   </ItemGroup>
   <ItemGroup>
